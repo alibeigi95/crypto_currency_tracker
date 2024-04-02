@@ -1,4 +1,4 @@
-import 'package:crypto_currency_tracker/crypto_currency_tracker.dart';
+import 'package:crypto_currency_tracker/main.dart';
 import 'package:flutter/material.dart';
 
 void main() {
