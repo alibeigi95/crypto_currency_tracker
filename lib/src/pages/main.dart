@@ -1,5 +1,6 @@
 import 'package:crypto_currency_tracker/exports.dart';
 import 'package:crypto_currency_tracker/src/models/crypto_currency.dart';
+import 'package:crypto_currency_tracker/src/pages/detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -68,6 +69,15 @@ class _MainPageState extends State<MainPage> {
                             CryptoCurrencyViewModel cryptoCurrencyViewModel =
                                 marketProvider.markets[index];
                             return ListTile(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => DetailPage(
+                                        id: cryptoCurrencyViewModel.id!,
+                                      ),
+                                    ));
+                              },
                               contentPadding: EdgeInsets.zero,
                               leading: CircleAvatar(
                                 backgroundColor: Colors.white,

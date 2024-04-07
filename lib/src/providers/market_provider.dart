@@ -1,4 +1,3 @@
-
 import 'dart:async';
 
 import 'package:crypto_currency_tracker/src/models/api.dart';
@@ -15,7 +14,7 @@ class MarketProvider with ChangeNotifier {
 
   void fetchData() async {
     List<dynamic> _markets = await API.getMarkets();
-    
+
     List<CryptoCurrencyViewModel> temp = [];
     for (var market in _markets) {
       CryptoCurrencyViewModel newCrypto =
@@ -27,12 +26,17 @@ class MarketProvider with ChangeNotifier {
     notifyListeners();
 
     Timer(
-      const Duration(seconds: 45),
-          () {
+      const Duration(seconds: 60),
+      () {
         fetchData();
         print('Fetching data');
       },
     );
   }
 
+  CryptoCurrencyViewModel fetchDataById(final String id) {
+    CryptoCurrencyViewModel crypto =
+        markets.where((e) => e.id == id).toList()[0];
+    return crypto;
+  }
 }

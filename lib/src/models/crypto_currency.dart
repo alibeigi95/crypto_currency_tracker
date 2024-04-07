@@ -5,7 +5,7 @@ class CryptoCurrencyViewModel {
   String? image;
   int? marketCapRank;
   double? currentPrice;
-  double? markerCap;
+  double? marketCap;
   double? high24;
   double? low24;
   double? priceChange24;
@@ -21,7 +21,7 @@ class CryptoCurrencyViewModel {
     required this.image,
     required this.marketCapRank,
     required this.currentPrice,
-    required this.markerCap,
+    required this.marketCap,
     required this.high24,
     required this.low24,
     required this.priceChange24,
@@ -39,7 +39,7 @@ class CryptoCurrencyViewModel {
         image: map['image'],
         marketCapRank: map['market_cap_rank'],
         currentPrice: map['current_price'],
-        markerCap: map['marker_cap'],
+        marketCap: map['market_cap'],
         high24: map['high_24h'],
         low24: map['low_24h'],
         priceChange24: map['price_change_24h'],
