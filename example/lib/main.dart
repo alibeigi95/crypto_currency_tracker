@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await SharedPreferences.getInstance();
   String currentTheme = await LocalStorage.getTheme() ?? "light";
   runApp(MyApp(theme: currentTheme));

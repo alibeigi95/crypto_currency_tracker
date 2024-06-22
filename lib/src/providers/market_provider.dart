@@ -18,7 +18,7 @@ class MarketProvider with ChangeNotifier {
     List<CryptoCurrencyViewModel> temp = [];
     for (var market in _markets) {
       CryptoCurrencyViewModel newCrypto =
-          CryptoCurrencyViewModel.fromMap(market);
+          CryptoCurrencyViewModel.fromJson(market);
       temp.add(newCrypto);
     }
     markets = temp;

@@ -31,22 +31,22 @@ class CryptoCurrencyViewModel {
     required this.atl,
   });
 
-  factory CryptoCurrencyViewModel.fromMap(dynamic map) =>
-      CryptoCurrencyViewModel(
-        id: map['id'],
-        symbol: map['symbol'],
-        name: map['name'],
-        image: map['image'],
-        marketCapRank: map['market_cap_rank'],
-        currentPrice: map['current_price'],
-        marketCap: map['market_cap'],
-        high24: map['high_24h'],
-        low24: map['low_24h'],
-        priceChange24: map['price_change_24h'],
-        priceChangePercentage24: map['price_change_percentage_24h'],
-        circulationSupply: map['circulation_supply'],
-        ath: map['ath'],
-        atl: map['atl'],
-      );
+  factory CryptoCurrencyViewModel.fromJson(Map<String, dynamic> json) {
+    return CryptoCurrencyViewModel(
+      id: json['id'] as String?,
+      symbol: json['symbol'] as String?,
+      name: json['name'] as String?,
+      image: json['image'] as String?,
+      marketCapRank: json['market_cap_rank'] as int?,
+      currentPrice: (json['current_price'] as num?)?.toDouble(),
+      marketCap: (json['market_cap'] as num?)?.toDouble(),
+      high24: (json['high_24h'] as num?)?.toDouble(),
+      low24: (json['low_24h'] as num?)?.toDouble(),
+      priceChange24: (json['price_change_24h'] as num?)?.toDouble(),
+      priceChangePercentage24: (json['price_change_percentage_24h'] as num?)?.toDouble(),
+      circulationSupply: (json['circulating_supply'] as num?)?.toDouble(),
+      ath: (json['ath'] as num?)?.toDouble(),
+      atl: (json['atl'] as num?)?.toDouble(),
+    );
+  }
 }
-
