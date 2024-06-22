@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:crypto_currency_tracker/src/models/api.dart';
 import 'package:crypto_currency_tracker/src/models/crypto_currency.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 
 class MarketProvider with ChangeNotifier {
   bool isLoading = true;
@@ -13,10 +13,10 @@ class MarketProvider with ChangeNotifier {
   }
 
   void fetchData() async {
-    List<dynamic> _markets = await API.getMarkets();
+    List<dynamic> markets = await API.getMarkets();
 
     List<CryptoCurrencyViewModel> temp = [];
-    for (var market in _markets) {
+    for (var market in markets) {
       CryptoCurrencyViewModel newCrypto =
           CryptoCurrencyViewModel.fromJson(market);
       temp.add(newCrypto);
@@ -29,7 +29,9 @@ class MarketProvider with ChangeNotifier {
       const Duration(seconds: 60),
       () {
         fetchData();
-        print('Fetching data');
+        if (kDebugMode) {
+          print('Fetching data');
+        }
       },
     );
   }

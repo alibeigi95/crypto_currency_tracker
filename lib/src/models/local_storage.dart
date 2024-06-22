@@ -9,7 +9,7 @@ class LocalStorage {
 
   static Future<String?> getTheme() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    String? currentTheme = await sharedPreferences.getString("theme");
+    String? currentTheme = sharedPreferences.getString("theme");
     return currentTheme;
   }
 }

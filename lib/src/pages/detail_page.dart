@@ -34,12 +34,11 @@ class _DetailPageState extends State<DetailPage> {
                       backgroundImage: NetworkImage(currentCrypto.image!),
                     ),
                     title: Text(
-                        currentCrypto.name! +
-                            "(${currentCrypto.symbol!.toUpperCase()})",
-                        style: TextStyle(fontSize: 20)),
+                        "${currentCrypto.name!}(${currentCrypto.symbol!.toUpperCase()})",
+                        style: const TextStyle(fontSize: 20)),
                     subtitle: Text(
                       currentCrypto.currentPrice!.toStringAsFixed(4),
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 30,
                           color: Colors.cyan,
                           fontWeight: FontWeight.bold),
@@ -73,11 +72,11 @@ class _DetailPageState extends State<DetailPage> {
         children: [
           Text(
             title,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
           ),
           Text(
             detail,
-            style: TextStyle(fontSize: 16),
+            style: const TextStyle(fontSize: 16),
           ),
         ],
       );

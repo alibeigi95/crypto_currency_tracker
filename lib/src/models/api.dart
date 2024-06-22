@@ -1,11 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
-import 'dart:convert';
 import 'dart:io';
-import 'package:http/http.dart' as http;
 
 class API {
   static Future<List<dynamic>> getMarkets() async {
@@ -20,20 +19,30 @@ class API {
         List<dynamic> markets = decodedResult as List<dynamic>;
         return markets;
       } else {
-        print('Failed to load data: ${response.statusCode}');
+        if (kDebugMode) {
+          print('Failed to load data: ${response.statusCode}');
+        }
         return [];
       }
     } on SocketException catch (e) {
-      print('SocketException: $e');
+      if (kDebugMode) {
+        print('SocketException: $e');
+      }
       return [];
     } on http.ClientException catch (e) {
-      print('ClientException: $e');
+      if (kDebugMode) {
+        print('ClientException: $e');
+      }
       return [];
     } on TimeoutException catch (e) {
-      print('TimeoutException: $e');
+      if (kDebugMode) {
+        print('TimeoutException: $e');
+      }
       return [];
     } catch (e) {
-      print('Unexpected error: $e');
+      if (kDebugMode) {
+        print('Unexpected error: $e');
+      }
       return [];
     }
   }
